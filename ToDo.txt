@@ -1,0 +1,3 @@
+## To do
+* Show a progress bar or a busy icon and lock the screen until the process finish.
+* Filter mails by 'Book' subject.
