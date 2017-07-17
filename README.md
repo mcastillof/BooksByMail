@@ -19,8 +19,7 @@ A KUAL extension for Kindle PW1 to receive books over email without the need of 
 
 ## How to send books to your device?
 * Use Calibre feature to send books over mail or just send you an email using your email client. There is no need for a subject or a body. Just attach your ebook. The filename of the ebook must be a valid FAT32 filename, so avoid strange symbols.
-* in your Kindle, open KUAL, 
-
+* It will take a little time to fetch the emails and unpack the attachments. Afterwards books will end up in your documents folder.
 
 ## Restrictions
 * Only IMAP servers are supported, so, don't try POP servers.
