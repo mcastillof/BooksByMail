@@ -38,6 +38,9 @@ do
 
 	#lowercase the filename, needs an aux filename as this is a fat32 filesystem
 	mv $F $ATTACHMENTS/aux
+	if [ ! -f $ATTACHMENTS/aux ] ; then
+		continue
+	fi
 	FL=$(basename `echo "$F" | tr '[A-Z]' '[a-z]'`)
 	mv $ATTACHMENTS/aux $ATTACHMENTS/$FL
 
@@ -46,6 +49,9 @@ do
 		if [[ ${FL##*.} == "$EXT" ]]; then
 			if [ ! -f $BOOKS/$FL ] ; then
 				mv $ATTACHMENTS/$FL $BOOKS
+				if [ ! -f $$BOOKS/$FL ] ; then
+					break
+				fi
 				COUNTER=$((COUNTER+1))
 			fi
 		fi
