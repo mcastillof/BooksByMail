@@ -24,32 +24,28 @@ kh_msg "  * Copying new books." I v
 
 COUNTER=0
 
-for F in $ATTACHMENTS/*
+for FILE in $ATTACHMENTS/*
 do
-	if [ -z "$F" ] ; then
+	if [ -z "$FILE" ] ; then
 		break
 	fi
 
-	if [ "$F" = "$ATTACHMENTS/*" ] ; then
+	if [ "$FILE" = "$ATTACHMENTS/*" ] ; then
 		break
 	fi
 
-	echo "Attachment: $F"
+	echo "Attachment: $FILE"
 
-	#lowercase the filename, needs an aux filename as this is a fat32 filesystem
-	mv $F $ATTACHMENTS/aux
-	if [ ! -f $ATTACHMENTS/aux ] ; then
-		continue
-	fi
-	FL=$(basename `echo "$F" | tr '[A-Z]' '[a-z]'`)
-	mv $ATTACHMENTS/aux $ATTACHMENTS/$FL
+	FILENAME_LOWERCASE=$(basename `echo "$FILE" | tr '[A-Z]' '[a-z]'`)
+	FILE_EXTENSION=${FILENAME_LOWERCASE##*.}
+	FILENAME=$(basename `echo "$FILE"`)
 
 	#checks if the file has an ebook extension. In that case it moves the file to $BOOKS folder
 	while IFS='' read -r EXT || [[ -n "$EXT" ]]; do
-		if [[ ${FL##*.} == "$EXT" ]]; then
-			if [ ! -f $BOOKS/$FL ] ; then
-				mv $ATTACHMENTS/$FL $BOOKS
-				if [ ! -f $$BOOKS/$FL ] ; then
+		if [[ $FILE_EXTENSION == "$EXT" ]]; then
+			if [ ! -f $BOOKS/$FILENAME ] ; then
+				mv $FILE $BOOKS
+				if [ ! -f $BOOKS/$FILENAME ] ; then
 					break
 				fi
 				COUNTER=$((COUNTER+1))

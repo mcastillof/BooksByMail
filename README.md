@@ -1,6 +1,7 @@
 # BooksByMail
 A KUAL extension for Kindle PW1 to receive books over email without the need of an Amazon account.
 
+V0.02 beta.
 
 ## Requirements
 * You need a jailbroken Kindle Paperwhite 1 with v5.3.9 fw (may work with other models and firmwares, but not tested).
