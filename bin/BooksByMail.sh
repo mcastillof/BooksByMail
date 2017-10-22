@@ -5,6 +5,7 @@ BBM=/mnt/us/extensions/BooksByMail
 CONFIG_FILE=$BBM/etc/offlineimap.conf
 ATTACHMENTS=$BBM/tmp/attachments
 EXTENSIONS=$BBM/etc/ebooksFormats
+PASSPHRASE=`cat $BBM/etc/passphrase`
 
 . $BBM/bin/libkh5
 
@@ -39,7 +40,18 @@ do
 	FILENAME_LOWERCASE=$(basename `echo "$FILE" | tr '[A-Z]' '[a-z]'`)
 	FILE_EXTENSION=${FILENAME_LOWERCASE##*.}
 	FILENAME=$(basename `echo "$FILE"`)
-
+	
+	if [ $FILE_EXTENSION == "gpg" ]
+	then
+	    LD_LIBRARY_PATH=$BBM/lib/ $BBM/bin/gpg --passphrase "affa" --batch --yes --output ${FILENAME%.} --decrypt ${FILENAME}
+	    if [ $? -ne 0 ]; then
+	        echo "Error trying to decrypt file $FILE"
+	        continue
+	    fi
+	    FILENAME="${FILE%.*}" #remove .gpg extension
+	    FILE_EXTENSION="${FILENAME%.*}"
+	fi
+	
 	#checks if the file has an ebook extension. In that case it moves the file to $BOOKS folder
 	while IFS='' read -r EXT || [[ -n "$EXT" ]]; do
 		if [[ $FILE_EXTENSION == "$EXT" ]]; then

@@ -1,5 +1,10 @@
 ## Changelog 
 
+10-22-2017 19:40:01
+v0.03 beta: 
+- GnuPG added so encrypted books can be sent over mail.
+
+
 07-16-2017 23:20:05
 v0.02 beta: 
 - Status message removed from menu.json.
