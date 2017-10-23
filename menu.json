@@ -4,7 +4,7 @@
 		"name": "BooksByMail", 
 		"priority": 1, 
 		"action": "bin/BooksByMail.sh > exec.log 2>&1",
-		"status": false,
+		"status": false
 		}
 	]
 }
