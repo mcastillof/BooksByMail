@@ -14,13 +14,13 @@ V0.03 beta.
 
 
 ## Configuration
-* Edit the file BookbyMail/etc/offlineimap.conf. Set your email provider, your account and password. Also change the parameter 'maxage' if you want to download books from mails that are older than two days. Keep in mind that you need enough space to download all those mails (they are removed after the operation is complete).
-* Edit the file BookbyMail/etc/ebooksFormats to set the file extensions of the books that you want to download from your email to the device.
+* Edit the file BookByMail/etc/offlineimap.conf. Set your email provider, your account and password. Also change the parameter 'maxage' if you want to download books from mails that are older than two days. Keep in mind that you need enough space to download all those mails (they are removed after the operation is complete).
+* Edit the file BookByMail/etc/ebooksFormats to set the file extensions of the books that you want to download from your email to the device.
 * Store your passphrase to decrypt files in BookByMail/etc/passphrase.
 
 ## How to send books to your device?
 * Use Calibre feature to send books over mail or just send you an email using your email client. There is no need for a subject or a body. Just attach your ebook. The filename of the ebook must be a valid FAT32 filename, so avoid strange symbols.
-* You may want to send your book in a encrypted file. See next section.
+* In your Kindle, open KUAL, and tap on BooksByMail.
 * It will take a little time to fetch the emails and unpack the attachments. Afterwards books will end up in documents/BooksByMail folder.
 
 ## How to encrypt a book?
