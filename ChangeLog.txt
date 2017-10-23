@@ -1,5 +1,9 @@
 ## Changelog 
 
+10-23-2017 00:06:04
+v0.04 beta:
+- Decryption bug fixes.
+
 10-22-2017 19:40:01
 v0.03 beta: 
 - GnuPG added so encrypted books can be sent over mail.

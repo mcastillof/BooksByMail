@@ -22,6 +22,7 @@ kh_msg "  * Unpacking attachments." I v
 $BBM/bin/munpack -t -C $ATTACHMENTS -f $BBM/tmp/*/*/*
 
 kh_msg "  * Copying new books." I v
+sync
 
 COUNTER=0
 
@@ -43,7 +44,7 @@ do
 	
 	if [ $FILE_EXTENSION == "gpg" ]
 	then
-	    LD_LIBRARY_PATH=$BBM/lib/ $BBM/bin/gpg --passphrase "affa" --batch --yes --output ${FILENAME%.} --decrypt ${FILENAME}
+	    LD_LIBRARY_PATH=$BBM/lib/ $BBM/bin/gpg --passphrase "$PASSPHRASE" --batch --yes --output ${FILE%.*} --decrypt ${FILE}
 	    if [ $? -ne 0 ]; then
 	        echo "Error trying to decrypt file $FILE"
 	        continue
