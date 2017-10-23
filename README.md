@@ -28,7 +28,7 @@ You may use GnuPG to encrypt the file. Just be sure to set the passhphrase in Bo
 
 To encrypt a book:
 
-`gpg --cipher-algo AES256 --output a.txt.gpg --symmetric a.txt`
+`gpg --cipher-algo AES256 --output book.mobi.gpg --symmetric book.mobi`
 
 From there, just send filename.mobi.gpg to your mail.
 The extension '.gpg' is needed to know that the file is encrypted, and the extension '.mobi' (or another extension of supported books) is needed to know that the file is a supported book.
