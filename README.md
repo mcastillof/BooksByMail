@@ -43,3 +43,7 @@ The extension '.gpg' is needed to know that the file is encrypted, and the exten
 * Report if it works in other Kindle model/firmware
 * Report bugs
 * Send patches
+
+## Social
+Let's talk about it in:
+https://www.mobileread.com/forums/showthread.php?t=288711
